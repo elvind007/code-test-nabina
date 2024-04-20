@@ -2,14 +2,16 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css"; // Import your CSS file
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Start = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
   
   useEffect(() => {
-    axios.get('${process.env.REACT_APP_BACKEND_URL}/verify')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/verify`)
       .then(result => {
         if(result.data.Status) {
           if(result.data.role === "ADMIN") {
