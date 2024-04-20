@@ -8,8 +8,10 @@ const app = express()
 app.use(cors({
     origin: ["https://6623ba9626144cd35e13d18f--soft-alfajores-9a4b36.netlify.app"],
     methods: ['GET', 'POST', 'PUT', "DELETE"],
-    credentials: true
+    credentials: true,
+    preflightContinue: true  // Allow preflight requests to pass through
 }))
+
 app.use(express.json())
 app.use(cookieParser())
 app.use('/auth', adminRouter)
