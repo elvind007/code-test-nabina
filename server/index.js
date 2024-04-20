@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 
 const app = express() 
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://soft-alfajores-9a4b36.netlify.app/"],
     methods: ['GET', 'POST', 'PUT', "DELETE"],
     credentials: true
 }))
