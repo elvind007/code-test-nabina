@@ -13,7 +13,7 @@ const Home = () => {
   }, [])
 
   const AdminRecords = () => {
-    axios.get('http://localhost:3000/auth/admin_records')
+    axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/admin_records')
     .then(result => {
       if(result.data.Status) {
         setAdmins(result.data.Result)
@@ -23,7 +23,7 @@ const Home = () => {
     })
   }
   const adminCount = () => {
-    axios.get('http://localhost:3000/auth/admin_count')
+    axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/admin_count')
     .then(result => {
       if(result.data.Status) {
         setAdminTotal(result.data.Result[0].admin)
@@ -31,7 +31,7 @@ const Home = () => {
     })
   }
   const employeeCount = () => {
-    axios.get('http://localhost:3000/auth/employee_count')
+    axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/employee_count')
     .then(result => {
       if(result.data.Status) {
         setemployeeTotal(result.data.Result[0].employee)

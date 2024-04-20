@@ -8,7 +8,7 @@ const Employee = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/employee")
+      .get("${process.env.REACT_APP_BACKEND_URL}/auth/employee")
       .then((result) => {
         if (result.data.Status) {
           setEmployee(result.data.Result);
@@ -19,7 +19,7 @@ const Employee = () => {
       .catch((err) => console.log(err));
   }, []);
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3000/auth/delete_employee/'+id)
+    axios.delete('${process.env.REACT_APP_BACKEND_URL}/auth/delete_employee/'+id)
     .then(result => {
         if(result.data.Status) {
             window.location.reload()
@@ -48,7 +48,7 @@ const Employee = () => {
                 <td>{e.name}</td>
                 <td>
                   <img
-                    src={`http://localhost:3000/Images/` + e.image}
+                    src={`${process.env.REACT_APP_BACKEND_URL}/Images/` + e.image}
                     className="employee_image"
                   />
                 </td>

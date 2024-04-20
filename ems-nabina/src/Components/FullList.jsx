@@ -12,7 +12,7 @@ const FullList = () => {
 
   const fetchEmployeeList = () => {
     axios
-      .get("http://localhost:3000/auth/employee")
+      .get("${process.env.REACT_APP_BACKEND_URL}/auth/employee")
       .then((result) => {
         if (result.data.Status) {
           setEmployee(result.data.Result);
@@ -56,7 +56,7 @@ const FullList = () => {
                 <td>{e.lname}</td>
                 <td>
                   <img
-                    src={`http://localhost:3000/Images/` + e.image}
+                    src={`${process.env.REACT_APP_BACKEND_URL}/Images/` + e.image}
                     className="employee_image"
                     alt={`${e.name}'s Image`}
                   />

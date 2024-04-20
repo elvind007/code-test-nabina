@@ -18,7 +18,7 @@ const EditEmployee = () => {
       const navigate = useNavigate()
 
       useEffect(() => {
-        axios.get('http://localhost:3000/auth/category')
+        axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/category')
             .then(result => {
                 if (result.data.Status) {
                     setCategory(result.data.Result);
@@ -27,7 +27,7 @@ const EditEmployee = () => {
                 }
             }).catch(err => console.log(err))
     
-        axios.get('http://localhost:3000/auth/employee/' + id)
+        axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/employee/' + id)
             .then(result => {
                 setEmployee({
                     ...employee,
@@ -51,7 +51,7 @@ const EditEmployee = () => {
         if (newPassword) {
             updatedEmployee.password = newPassword;
         }
-        axios.put('http://localhost:3000/auth/edit_employee/'+id, updatedEmployee)
+        axios.put('${process.env.REACT_APP_BACKEND_URL}/auth/edit_employee/'+id, updatedEmployee)
         .then(result => {
             if(result.data.Status) {
                 navigate('/dashboard/employee')

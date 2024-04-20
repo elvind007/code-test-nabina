@@ -21,7 +21,7 @@ const EmployeeDetail = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:3000/auth/category')
+        axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/category')
             .then(result => {
                 if (result.data.Status) {
                     setCategory(result.data.Result);
@@ -30,7 +30,7 @@ const EmployeeDetail = () => {
                 }
             }).catch(err => console.log(err))
 
-        axios.get('http://localhost:3000/auth/employee/' + userid)
+        axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/employee/' + userid)
             .then(result => {
                 setEmployee({
                     ...employee,
