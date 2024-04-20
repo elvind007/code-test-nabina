@@ -12,7 +12,7 @@ const FullList = () => {
 
   const fetchEmployeeList = () => {
     axios
-      .get(`https://code-test-nabina-production.up.railway.app/auth/employee`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/auth/employee`)
       .then((result) => {
         if (result.data.Status) {
           setEmployee(result.data.Result);

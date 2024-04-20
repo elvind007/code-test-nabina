@@ -17,7 +17,7 @@ const AddEmployee = () => {
 
   useEffect(() => {
     axios
-      .get("https://code-test-nabina-production.up.railway.app/auth/category")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/auth/category`)
       .then((result) => {
         if (result.data.Status) {
           setCategory(result.data.Result);
