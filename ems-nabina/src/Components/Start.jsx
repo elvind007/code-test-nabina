@@ -9,7 +9,7 @@ const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   
   useEffect(() => {
-    axios.get(`https://code-test-nabina-production.up.railway.app/verify`)
+    axios.get(`process.env.REACT_APP_API_URL/verify`)
       .then(result => {
         if(result.data.Status) {
           if(result.data.role === "ADMIN") {

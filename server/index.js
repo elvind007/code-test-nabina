@@ -11,7 +11,7 @@ const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'default_secret_key';
 
 const app = express() 
 app.use(cors({
-    origin: ["https://code-test-nabina.vercel.app/"],
+    origin: ["https://code-test-nabina.vercel.app"],
     methods: ['GET', 'POST', 'PUT', "DELETE"],
     credentials: true,
     preflightContinue: true  // Allow preflight requests to pass through
