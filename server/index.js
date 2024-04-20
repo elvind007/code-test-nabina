@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 
 const app = express() 
 app.use(cors({
-    origin: ["https://soft-alfajores-9a4b36.netlify.app"],
+    origin: ["https://code-test-nabina.vercel.app/"],
     methods: ['GET', 'POST', 'PUT', "DELETE"],
     credentials: true,
     preflightContinue: true  // Allow preflight requests to pass through
