@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import dotenv from 'dotenv';
 
 dotenv.config();
+const port=process.env.PORT || 3000;
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'default_secret_key';
 
@@ -44,6 +45,6 @@ app.get('/verify',verifyUser, (req, res)=> {
     return res.json({Status: true, role: req.role, id: req.id});
 } );
 
-app.listen(5173, () => {
+app.listen(port,"0.0.0.0", () => {
     console.log("Server is running")
 })
