@@ -18,7 +18,7 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
     
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/adminlogin`, values)
+        axios.post(`https://code-test-nabina-production.up.railway.app/auth/adminlogin`, values)
             .then(result => {
                 if(result.data.loginStatus) {
                     localStorage.setItem("valid", true)

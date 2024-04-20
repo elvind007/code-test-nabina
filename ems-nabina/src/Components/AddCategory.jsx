@@ -8,7 +8,7 @@ const AddCategory = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/add_category`, {category})
+        axios.post(`https://code-test-nabina-production.up.railway.app/auth/add_category`, {category})
         .then(result => {
             if(result.data.Status) {
                 navigate('/dashboard/category')
