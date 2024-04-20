@@ -24,20 +24,25 @@ app.use(express.static('Public'))
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
+    console.log('Token:', token); // Debugging statement
     if(token) {
         Jwt.verify(token, JWT_SECRET_KEY, (err ,decoded) => {
-            if(err) return res.json({Status: false, Error: "Wrong Token"})
+            if(err) {
+                console.log('JWT Verification Error:', err); // Debugging statement
+                return res.json({Status: false, Error: "Wrong Token"});
+            }
             req.id = decoded.id;
             req.role = decoded.role;
-            next()
-        })
+            next();
+        });
     } else {
-        return res.json({Status: false, Error: "Not authenticated"})
+        console.log('No Token Found'); // Debugging statement
+        return res.json({Status: false, Error: "Not authenticated"});
     }
 }
 app.get('/verify',verifyUser, (req, res)=> {
-    return res.json({Status: true, role: req.role, id: req.id})
-} )
+    return res.json({Status: true, role: req.role, id: req.id});
+} );
 
 app.listen(3000, () => {
     console.log("Server is running")
