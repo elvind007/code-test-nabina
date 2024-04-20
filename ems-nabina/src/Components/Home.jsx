@@ -23,7 +23,7 @@ const Home = () => {
     })
   }
   const adminCount = () => {
-    axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/admin_count')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/admin_count`)
     .then(result => {
       if(result.data.Status) {
         setAdminTotal(result.data.Result[0].admin)

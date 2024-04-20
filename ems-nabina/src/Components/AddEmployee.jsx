@@ -39,7 +39,7 @@ const AddEmployee = () => {
     formData.append('role', employee.role);
     formData.append('image', employee.image);
 
-    axios.post('${process.env.REACT_APP_BACKEND_URL}/auth/add_employee', formData)
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/add_employee`, formData)
     .then(result => {
         if(result.data.Status) {            
             navigate('/dashboard/employee')

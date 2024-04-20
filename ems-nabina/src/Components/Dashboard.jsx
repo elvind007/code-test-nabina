@@ -8,7 +8,7 @@ const Dashboard = ({ adminid }) => {
   const navigate = useNavigate()
   axios.defaults.withCredentials = true
   const handleLogout = () => {
-    axios.get('${process.env.REACT_APP_BACKEND_URL}/auth/logout')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/logout`)
     .then(result => {
       if(result.data.Status) { 
         localStorage.removeItem("valid")
