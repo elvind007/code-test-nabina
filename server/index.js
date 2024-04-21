@@ -22,8 +22,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.all('*', function(req, res, next) {
-    const origin = corsOptions.origin.includes(req.header('origin').toLowerCase()) ? req.headers.origin : corsOptions.default;
-    res.header("Access-Control-Allow-Origin", origin);
+    const origin = req.headers.origin.toLowerCase();
+    if (corsOptions.origin.includes(origin)) {
+        res.header("Access-Control-Allow-Origin", origin);
+    }
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
