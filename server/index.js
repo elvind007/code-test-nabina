@@ -12,8 +12,7 @@ const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || '(c+&76-aewt97-&(-$f!pbj+xm
 
 const app = express() 
 app.use(cors({
-    origin: ["https://code-test-nabina.vercel.app",  "https://code-test-nabina-git-main-elvind007s-projects.vercel.app", "https://code-test-nabina-g9old3drz-elvind007s-projects.vercel.app"
-    ],
+    origin: ["https://code-test-nabina.vercel.app","https://code-test-nabina-git-main-elvind007s-projects.vercel.app", "https://code-test-nabina-g9old3drz-elvind007s-projects.vercel.app" ],
     methods: ['GET', 'POST', 'PUT', "DELETE"],
     credentials: true,
     preflightContinue: true  // Allow preflight requests to pass through
