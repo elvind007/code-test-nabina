@@ -75,6 +75,9 @@ const Login = () => {
                 </div>
 </div>
             </form>
+            <button type="button" className="btn btn-primary px-5 py-3"  onClick={() => navigate('/')}>
+                Main Menu
+              </button>  
         </div>
     </div>
   )

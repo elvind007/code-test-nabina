@@ -1,11 +1,5 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-
 const EmployeeDetail = () => {
-    const { adminid } = useParams();
-    const { hrid } = useParams();
-    const { empid } = useParams();
+    const { adminid, hrid, empid } = useParams();
     const [userid, setUserid] = useState(adminid || hrid || empid)
     const [employee, setEmployee] = useState({
         name: "",
@@ -19,6 +13,10 @@ const EmployeeDetail = () => {
     const [currentDept, setCurrentDepartment] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const navigate = useNavigate()
+
+    useEffect(() => {
+        setUserid(adminid || hrid || empid);
+    }, [adminid, hrid, empid]);
 
     useEffect(() => {
         axios.get(`https://code-test-nabina-production.up.railway.app/auth/category`)
@@ -45,8 +43,7 @@ const EmployeeDetail = () => {
                 const currentDept = category.find(c => c.id === result.data.Result[0].category_id);
                 setCurrentDepartment(currentDept ? currentDept.name : "");
             }).catch(err => console.log(err))
-    }, [])
-
+    }, [userid, category])
 
 
     return (

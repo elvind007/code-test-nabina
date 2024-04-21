@@ -61,7 +61,7 @@ function App() {
         <Route path='' element={<Home />}></Route>
         <Route path='/dashboard/employee' element={<Employee />}></Route>
         <Route path='/dashboard/category' element={<Category />}></Route>
-        <Route path='/dashboard/EmployeeDetail/:adminid' element={<EmployeeDetail />}></Route> {/*remove :id */ }
+        <Route path='/dashboard/EmployeeDetail/:adminid' element={<EmployeeDetail />}></Route> 
         <Route path='/dashboard/add_category' element={<AddCategory />}></Route>
         <Route path='/dashboard/add_employee' element={<AddEmployee />}></Route>
         <Route path='/dashboard/edit_employee/:id' element={<EditEmployee />}></Route>
