@@ -43,8 +43,8 @@ const Login = () => {
     }
 
     return (
-        <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
-            <div className='p-3 rounded w-25 border loginForm'>
+        <div className='container-fluid d-flex justify-content-center align-items-center vh-100 loginPage'>
+            <div className='p-3 rounded w-75 w-md-50 w-lg-25 border loginForm'>
                 <div className='text-warning'>
                     {error && error}
                 </div>
@@ -72,10 +72,10 @@ const Login = () => {
                     />
                     <label htmlFor="tick">Agree with terms & conditions</label>
                 </div>
-                <button type="button" className="btn btn-primary px-5 py-3" onClick={() => navigate('/')}>
-                    Main Menu
-                </button>
             </div>
+            <button type="button" className="btn btn-primary px-5 py-3 mt-3" onClick={() => navigate('/')}>
+                Main Menu
+            </button>
         </div>
     )
 }
