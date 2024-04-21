@@ -25,7 +25,7 @@ const Empdash = ({ empid }) => {
               className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none"
             >
               <span className="fs-5 fw-bolder d-none d-sm-inline">
-                Employee Profile
+                Employee Panel
               </span>
             </Link>
             <ul
@@ -54,7 +54,7 @@ const Empdash = ({ empid }) => {
         </div>
         <div className="col p-0 m-0">
             <div className="p-2 d-flex justify-content-center shadow">
-                <h4>Employee Profile</h4>
+                <h4>Employee Panel</h4>
             </div>
             <Outlet />
         </div>

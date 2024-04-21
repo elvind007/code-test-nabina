@@ -22,6 +22,9 @@ const EditEmployee = () => {
             .then(result => {
                 if (result.data.Status) {
                     setCategory(result.data.Result);
+                    // Set the current department here
+                    const currentDept = result.data.Result.find(c => c.id === employee.category_id);
+                    setCurrentDepartment(currentDept ? currentDept.name : "");
                 } else {
                     alert(result.data.Error)
                 }
@@ -39,8 +42,6 @@ const EditEmployee = () => {
                 })
                 const currentRole = result.data.Result[0].role;
                 setCurrentRole(currentRole);
-                const currentDept = category.find(c=> c.id === result.data.Result[0].category_id);                
-                setCurrentDepartment(currentDept ? currentDept.name  : "");
             }).catch(err => console.log(err))
     }, [])
 
