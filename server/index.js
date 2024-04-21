@@ -20,14 +20,16 @@ app.use(cors({
 }))
 
 app.all('*', function(req, res, next) {
-            let origin = req.headers.origin;
-            if(cors.origin.indexOf(origin) >= 0){
-                res.header("Access-Control-Allow-Origin", origin);
-            }         
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            next();
-        });
-
+    let origin = req.headers.origin;
+    if (app.get('env') === 'development') {
+        console.log('Request Origin:', origin); // Debugging statement
+    }
+    if (cors.origin.indexOf(origin) >= 0) {
+        res.header("Access-Control-Allow-Origin", origin);
+    }
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.use(express.json())
 app.use(cookieParser())
 app.use('/auth', adminRouter)
