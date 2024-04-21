@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import dotenv from "dotenv";
+dotenv.config();
+
+const url = process.env.REACT_APP_BACKEND_URL;
 
 const FullList = () => {
   const [employee, setEmployee] = useState([]);
@@ -12,7 +16,7 @@ const FullList = () => {
 
   const fetchEmployeeList = () => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/auth/employee`)
+      .get(url`/auth/employee`)
       .then((result) => {
         if (result.data.Status) {
           setEmployee(result.data.Result);

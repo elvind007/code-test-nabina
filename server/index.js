@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const port=process.env.PORT || 3000;
 
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'default_secret_key';
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || '(c+&76-aewt97-&(-$f!pbj+xmgua+p02qo%j&0a!k=318=iga';
 
 const app = express() 
 app.use(cors({
