@@ -2,9 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css"; // Import your CSS file
-import dotenv from 'dotenv';
 
-dotenv.config();
 const url=process.env.REACT_APP_BACKEND_URL;
 
 const Start = () => {
