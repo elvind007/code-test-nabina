@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const EmployeeDetail = () => {
     const { adminid, hrid, empid } = useParams();
-    const [userid, setUserid] = useState(adminid || hrid || empid)
+    const [userid, setUserid] = useState(null); // Initialize to null
     const [employee, setEmployee] = useState({
         name: "",
         lname: "",
@@ -19,9 +19,8 @@ const EmployeeDetail = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        setUserid(adminid || hrid || empid);
+        setUserid(adminid || hrid || empid); // Update userid when adminid, hrid, or empid changes
     }, [adminid, hrid, empid]);
-
     useEffect(() => {
         axios.get(`https://code-test-nabina-production.up.railway.app/auth/category`)
             .then(result => {
