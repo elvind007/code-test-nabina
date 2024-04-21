@@ -11,12 +11,21 @@ const port=process.env.PORT || 3000;
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || '(c+&76-aewt97-&(-$f!pbj+xmgua+p02qo%j&0a!k=318=iga';
 
 const app = express() 
-app.use(cors({
-    origin: ["https://code-test-nabina.vercel.app","https://code-test-nabina-git-main-elvind007s-projects.vercel.app", "https://code-test-nabina-g9old3drz-elvind007s-projects.vercel.app", "https://6624b0e16fb67178ba3c6b01--nabina-ems.netlify.app/", "https://nabina-ems.netlify.app/" ],
-    methods: ['GET', 'POST', 'PUT', "DELETE"],
-    credentials: true,
-    preflightContinue: true  // Allow preflight requests to pass through
-}))
+
+// CORS middleware
+app.use((req, res, next) => {
+    const allowedOrigins = ["https://code-test-nabina.vercel.app", "https://code-test-nabina-git-main-elvind007s-projects.vercel.app", "https://code-test-nabina-g9old3drz-elvind007s-projects.vercel.app", "https://6624b0e16fb67178ba3c6b01--nabina-ems.netlify.app/", "https://nabina-ems.netlify.app/"];
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
 
 app.use(express.json())
 app.use(cookieParser())
