@@ -8,7 +8,7 @@ const Employee = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/auth/employee`)
+      .get(`https://code-test-nabina-production.up.railway.app/auth/employee`)
       .then((result) => {
         if (result.data.Status) {
           setEmployee(result.data.Result);
@@ -19,7 +19,7 @@ const Employee = () => {
       .catch((err) => console.log(err));
   }, []);
   const handleDelete = (id) => {
-    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/auth/delete_employee/`+id)
+    axios.delete(`https://code-test-nabina-production.up.railway.app/auth/delete_employee/`+id)
     .then(result => {
         if(result.data.Status) {
             window.location.reload()
@@ -54,7 +54,7 @@ const Employee = () => {
                 <td>{e.lname}</td>
                 <td>
                   <img
-                    src={`http://localhost:3000/Images/` + e.image}
+                    src={`https://code-test-nabina-production.up.railway.app/Images/` + e.image}
                     className="employee_image"
                   />
                 </td>

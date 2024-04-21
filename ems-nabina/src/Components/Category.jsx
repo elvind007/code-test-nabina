@@ -7,7 +7,7 @@ const Category = () => {
     const [category, setCategory] = useState([])
 
     useEffect(()=> {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/category`)
+        axios.get(`https://code-test-nabina-production.up.railway.app/auth/category`)
         .then(result => {
             if(result.data.Status) {
                 setCategory(result.data.Result);

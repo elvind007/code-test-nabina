@@ -21,7 +21,7 @@ const EmployeeDetail = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/category`)
+        axios.get(`https://code-test-nabina-production.up.railway.app/auth/category`)
             .then(result => {
                 if (result.data.Status) {
                     setCategory(result.data.Result);
@@ -30,7 +30,7 @@ const EmployeeDetail = () => {
                 }
             }).catch(err => console.log(err))
 
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/employee/` + userid)
+        axios.get(`https://code-test-nabina-production.up.railway.app/auth/employee/` + userid)
             .then(result => {
                 setEmployee({
                     ...employee,

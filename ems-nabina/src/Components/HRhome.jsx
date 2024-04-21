@@ -11,7 +11,7 @@ const HRhome = () => {
   }, [])
 
   const AdminRecords = () => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/admin_records`)
+    axios.get(`https://code-test-nabina-production.up.railway.app/auth/admin_records`)
     .then(result => {
       if(result.data.Status) {
         setAdmins(result.data.Result)
@@ -22,7 +22,7 @@ const HRhome = () => {
   }
 
   const employeeCount = () => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/employee_count`)
+    axios.get(`https://code-test-nabina-production.up.railway.app/auth/employee_count`)
     .then(result => {
       if(result.data.Status) {
         setemployeeTotal(result.data.Result[0].employee)

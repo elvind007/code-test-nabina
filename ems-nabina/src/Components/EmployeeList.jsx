@@ -8,7 +8,7 @@ const Employee = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/auth/employee`)
+      .get(`https://code-test-nabina-production.up.railway.app/auth/employee`)
       .then((result) => {
         if (result.data.Status) {
           setEmployee(result.data.Result);
@@ -48,7 +48,7 @@ const Employee = () => {
                 <td>{e.name}</td>
                 <td>
                   <img
-                    src={`${process.env.REACT_APP_BACKEND_URL}/Images/` + e.image}
+                    src={`https://code-test-nabina-production.up.railway.app/Images/` + e.image}
                     className="employee_image"
                   />
                 </td>

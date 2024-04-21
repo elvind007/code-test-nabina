@@ -8,7 +8,7 @@ const HRdash = ({ hrid }) => {
   const anvigate = useNavigate()
   axios.defaults.withCredentials = true
   const handleLogout = () => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/logout`)
+    axios.get(`https://code-test-nabina-production.up.railway.app/auth/logout`)
     .then(result => {
       if(result.data.Status) { 
         localStorage.removeItem("valid")
