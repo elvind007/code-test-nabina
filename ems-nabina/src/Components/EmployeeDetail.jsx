@@ -1,3 +1,7 @@
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+
 const EmployeeDetail = () => {
     const { adminid, hrid, empid } = useParams();
     const [userid, setUserid] = useState(adminid || hrid || empid)
