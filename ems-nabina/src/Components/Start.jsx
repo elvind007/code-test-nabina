@@ -11,7 +11,7 @@ const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   
   useEffect(() => {
-    axios.get(url`/verify`)
+    axios.get(process.env.REACT_APP_BACKEND_URL`/verify`)
       .then(result => {
         if(result.data.Status) {
           if(result.data.role === "ADMIN") {
