@@ -12,18 +12,20 @@ const app = express();
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || '(c+&76-aewt97-&(-$f!pbj+xmgua+p02qo%j&0a!k=318=iga';
 
-const corsOptions = {
-    origin: ["https://code-test-nabina.vercel.app", "https://code-test-nabina-git-main-elvind007s-projects.vercel.app", "https://code-test-nabina-g9old3drz-elvind007s-projects.vercel.app" ]
-};  
+app.use((req, res, next) => {
+    const allowedOrigins = ["https://code-test-nabina-vercel.app", "https://code-test-nabina-git-main-elvind007s-projects.vercel.app", "https://code-test-nabina-g9old3drz-elvind007s-projects.vercel.app"];
+    const origin = req.headers.origin;
 
-app.use(cors(corsOptions));
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
 
-function setCorsHeaders(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Credentials", "true");
     next();
-}
+});
+
 
 app.use(setCorsHeaders);
 app.use(express.json())
