@@ -26,8 +26,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-app.use(setCorsHeaders);
 app.use(express.json())
 app.use(cookieParser())
 app.use('/auth', adminRouter)
