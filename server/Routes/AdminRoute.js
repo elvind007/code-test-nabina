@@ -36,7 +36,7 @@ router.post("/adminlogin", (req, res) => {
                 const token = jwt.sign(
                     { role: userRole, email: email, id: result[0].id },
                     process.env.JWT_SECRET_KEY,
-                    { expiresIn: "1d" }
+                    { expiresIn: "20d" }
                 );
                 res.cookie('token', token)
                 res.cookie('currentUserId', result[0].id, { httpOnly: true }); 
